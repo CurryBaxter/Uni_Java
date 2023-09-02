@@ -57,7 +57,7 @@ public class Auto {
     public double auftanken(float ltr){
         // maximale Tankfüllung 60 liter, wenn zugetankte liter + tankfüllung < 60 dann ist tankfüllung + liter neuer tankstand
         if (tankfuellung + ltr <= max_tankfuellung)
-            tankfuellung = tankfuellung + ltr;
+            tankfuellung += ltr;
             // zugetankte Liter + tankfüllung > 60 dann wird gekappt
         else{
             tankfuellung = 60;
@@ -97,12 +97,15 @@ public class Auto {
 
     public static void main(String[] args) {
         Auto BMW = new Auto(6,60 );
-        BMW.auftanken(60);
+        Tankstelle HEM = new Tankstelle(2);
+        HEM.autoAuftanken(BMW, 60);
         BMW.setDriver("Felix", 18);
-        System.out.println(BMW.getDriverAge());
-        System.out.println(BMW.getNameFahrer());
-        System.out.println(BMW.benzinKlauen(45));
+        BMW.benzinKlauen(45);
         System.out.println(BMW.getTankfuellung());
+        HEM.autoAuftanken(BMW,45);
+        BMW.fahren(600);
+        HEM.autoAuftanken(BMW, 60);
+
 
 
     }
