@@ -1,6 +1,7 @@
 package Kapitel9;
 
 
+
 public class Auto {
     private double kilometerstand;
     private double tankfuellung;
@@ -54,6 +55,23 @@ public class Auto {
             return tankfuellung;
     }
 
+    public static void autosAngleichen(Auto auto1, Auto auto2){
+        auto2.setDriver(auto1.nameFahrer, auto1.DriverAge );
+        if (auto1.tankfuellung > auto2.tankfuellung){
+            auto1.benzinKlauen(auto1.tankfuellung-auto2.tankfuellung);
+            return;
+        }
+        else if (auto2.tankfuellung > auto1.tankfuellung) {
+            auto2.benzinKlauen(auto2.tankfuellung-auto1.tankfuellung);
+            return;
+
+        } else{
+            return;
+
+        }
+    }
+
+
     public double auftanken(float ltr){
         // maximale Tankfüllung 60 liter, wenn zugetankte liter + tankfüllung < 60 dann ist tankfüllung + liter neuer tankstand
         if (tankfuellung + ltr <= max_tankfuellung)
@@ -99,12 +117,18 @@ public class Auto {
         Auto BMW = new Auto(6,60 );
         Tankstelle HEM = new Tankstelle(2);
         HEM.autoAuftanken(BMW, 60);
-        BMW.setDriver("Felix", 18);
+        BMW.setDriver("Martin", 18);
         BMW.benzinKlauen(45);
-        System.out.println(BMW.getTankfuellung());
+        //System.out.println(BMW.getTankfuellung());
         HEM.autoAuftanken(BMW,45);
         BMW.fahren(600);
         HEM.autoAuftanken(BMW, 60);
+        Auto VW = new Auto(4, 70);
+        HEM.autoAuftanken(VW, 55);
+        autosAngleichen(BMW,VW);
+        System.out.println(BMW.getTankfuellung());
+        //System.out.println(VW.getNameFahrer());
+
 
 
 
