@@ -17,7 +17,7 @@ public class Tankstelle {
         }
     }
 
-    public void autoAuftanken(Auto a, float Menge){
+    public void autoAuftanken(Auto a, double Menge){
         if ( Menge + a.getTankfuellung() > a.getMax_tankfuellung()){
             double getankteLiter = a.getMax_tankfuellung() - a.getTankfuellung();
             a.auftanken(Menge);

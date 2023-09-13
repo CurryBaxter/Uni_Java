@@ -55,24 +55,31 @@ public class Auto {
             return tankfuellung;
     }
 
-    public static void autosAngleichen(Auto auto1, Auto auto2){
-        auto2.setDriver(auto1.nameFahrer, auto1.DriverAge );
-        if (auto1.tankfuellung > auto2.tankfuellung){
-            auto1.benzinKlauen(auto1.tankfuellung-auto2.tankfuellung);
+    public static void autosAngleichen(Auto auto1, Auto auto2, Tankstelle T1){
+        if (auto1 != null && auto2 != null){
+            auto2.setDriver(auto1.nameFahrer, auto1.DriverAge );
+
+            if (auto1.tankfuellung > auto2.tankfuellung){
+                T1.autoAuftanken(auto2,auto1.tankfuellung-auto2.tankfuellung);
+                return;
+            }
+            else if (auto2.tankfuellung > auto1.tankfuellung) {
+                T1.autoAuftanken(auto1, auto2.tankfuellung- auto1.tankfuellung);
+                return;
+
+            } else{
+                return;
+
+            }
+        }
+        else{
             return;
         }
-        else if (auto2.tankfuellung > auto1.tankfuellung) {
-            auto2.benzinKlauen(auto2.tankfuellung-auto1.tankfuellung);
-            return;
 
-        } else{
-            return;
-
-        }
     }
 
 
-    public double auftanken(float ltr){
+    public double auftanken(double ltr){
         // maximale Tankfüllung 60 liter, wenn zugetankte liter + tankfüllung < 60 dann ist tankfüllung + liter neuer tankstand
         if (tankfuellung + ltr <= max_tankfuellung)
             tankfuellung += ltr;
@@ -116,16 +123,18 @@ public class Auto {
     public static void main(String[] args) {
         Auto BMW = new Auto(6,60 );
         Tankstelle HEM = new Tankstelle(2);
-        HEM.autoAuftanken(BMW, 60);
+        HEM.autoAuftanken(BMW, 40);
         BMW.setDriver("Martin", 18);
-        BMW.benzinKlauen(45);
+        //BMW.benzinKlauen(45);
         //System.out.println(BMW.getTankfuellung());
-        HEM.autoAuftanken(BMW,45);
-        BMW.fahren(600);
-        HEM.autoAuftanken(BMW, 60);
+        //HEM.autoAuftanken(BMW,45);
+        //BMW.fahren(600);
+        //HEM.autoAuftanken(BMW, 45);
         Auto VW = new Auto(4, 70);
         HEM.autoAuftanken(VW, 55);
-        autosAngleichen(BMW,VW);
+        System.out.println(BMW.getTankfuellung());
+        //Auto VW = null;
+        autosAngleichen(BMW,VW,HEM);
         System.out.println(BMW.getTankfuellung());
         //System.out.println(VW.getNameFahrer());
 
