@@ -55,6 +55,14 @@ public class Auto {
             return tankfuellung;
     }
 
+    public boolean equals(Object other){
+        if (other instanceof Auto otherAuto){
+            return otherAuto.getKilometerstand() == this.getKilometerstand() & otherAuto.getMax_tankfuellung() == this.getMax_tankfuellung() & otherAuto.getVerbrauch() == this.getVerbrauch() & otherAuto.getTankfuellung() == this.getTankfuellung();
+
+        }
+        return false;
+    }
+
     public static void autosAngleichen(Auto auto1, Auto auto2, Tankstelle T1){
         if (auto1 != null && auto2 != null){
             auto2.setDriver(auto1.nameFahrer, auto1.DriverAge );
@@ -130,13 +138,14 @@ public class Auto {
         //HEM.autoAuftanken(BMW,45);
         //BMW.fahren(600);
         //HEM.autoAuftanken(BMW, 45);
-        Auto VW = new Auto(4, 70);
+        Auto VW = new Auto(6, 60);
         HEM.autoAuftanken(VW, 55);
         System.out.println(BMW.getTankfuellung());
         //Auto VW = null;
         autosAngleichen(BMW,VW,HEM);
         System.out.println(BMW.getTankfuellung());
         //System.out.println(VW.getNameFahrer());
+        System.out.println(VW.equals(BMW));
 
 
 
