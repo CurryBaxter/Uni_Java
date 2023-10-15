@@ -4,11 +4,13 @@ public abstract class Tier {
     protected float gewicht;
     private float initGewicht;
     private boolean isAlive;
+    private String name;
 
-    public Tier (float initGewicht_, float Gewicht_){
+    public Tier (float initGewicht_, float Gewicht_, String Name_){
         gewicht = Gewicht_;
         initGewicht = initGewicht_;
         isAlive = true;
+        this.name = Name_;
     }
 
 
@@ -25,7 +27,9 @@ public abstract class Tier {
         return this.initGewicht;
     }
 
-    protected abstract String getName();
+    public String getName(){
+        return this.name;
+    }
 
 
 

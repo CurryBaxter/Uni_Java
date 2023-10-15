@@ -2,7 +2,6 @@ package Kapitel13;
 
 import Kapitel11.*;
 
-import javax.swing.plaf.basic.BasicIconFactory;
 
 public class Arena <T extends Tier, V extends Tier> {
 
@@ -16,14 +15,15 @@ public class Arena <T extends Tier, V extends Tier> {
     }
 
     public void showdown() {
+        //Schleife finden
+        if (animal1)
         animal1.eat(animal2);
-        // Richtiger Output gesucht
-        System.out.println(animal1.getClass());
+        System.out.println(animal1.getName());
     }
 
     public static void main(String[] args) {
-        Eichhoernchen Eichhorn = new Eichhoernchen(1,1);
-        Baummarder Baummard = new Baummarder(3,3);
+        Eichhoernchen Eichhorn = new Eichhoernchen(1,1, "Eichhorn");
+        Baummarder Baummard = new Baummarder(3,3,"Baummard");
         Arena<Tier,Tier> wg1 = new Arena<>(Eichhorn, Baummard);
         wg1.showdown();
 
