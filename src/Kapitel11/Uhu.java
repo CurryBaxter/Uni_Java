@@ -6,6 +6,11 @@ public class Uhu extends Tier {
     }
 
     @Override
+    protected String getName() {
+        return "Uhu";
+    }
+
+    @Override
     protected boolean canEat(Tier other) {
         return other instanceof Eichhoernchen ^ other instanceof Baummarder & other.AnimalAlive() == this.AnimalAlive();
     }

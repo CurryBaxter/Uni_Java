@@ -6,6 +6,11 @@ public class Eichhoernchen extends Tier {
     }
 
     @Override
+    protected String getName() {
+        return "Eichhörnchen";
+    }
+
+    @Override
     protected boolean canEat(Tier other) {
         return false;
     }

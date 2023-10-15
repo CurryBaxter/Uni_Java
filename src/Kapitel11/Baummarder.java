@@ -6,6 +6,11 @@ public class Baummarder extends Tier {
     }
 
     @Override
+    protected String getName() {
+        return "Baummarder";
+    }
+
+    @Override
     protected boolean canEat(Tier other) {
         return other instanceof Eichhoernchen & this.AnimalAlive() == other.AnimalAlive();
     }

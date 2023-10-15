@@ -11,9 +11,11 @@ public abstract class Tier {
         isAlive = true;
     }
 
+
     public float getGewicht(){
         return this.gewicht;
     }
+
 
     public boolean AnimalAlive(){
         return this.isAlive;
@@ -22,6 +24,9 @@ public abstract class Tier {
     public float getInitGewicht(){
         return this.initGewicht;
     }
+
+    protected abstract String getName();
+
 
 
     protected abstract boolean canEat(Tier other);
@@ -36,6 +41,7 @@ public abstract class Tier {
             other.wirdGetoetet();
         }
     }
+
 
     public void verdauen(){
         if (this.gewicht > this.initGewicht){
