@@ -1,8 +1,8 @@
 package Kapitel11;
 
 public class Uhu extends Tier {
-    public Uhu(float initGewicht_, float Gewicht_) {
-        super(initGewicht_, Gewicht_);
+    public Uhu(float Gewicht_) {
+        super(Gewicht_);
     }
 
     @Override

@@ -5,9 +5,9 @@ public abstract class Tier {
     private float initGewicht;
     private boolean isAlive;
 
-    public Tier (float initGewicht_, float Gewicht_){
+    public Tier (float Gewicht_){
         gewicht = Gewicht_;
-        initGewicht = initGewicht_;
+        initGewicht = Gewicht_;
         isAlive = true;
     }
 

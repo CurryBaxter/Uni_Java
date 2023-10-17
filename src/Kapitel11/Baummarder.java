@@ -1,8 +1,8 @@
 package Kapitel11;
 
 public class Baummarder extends Tier {
-    public Baummarder(float initGewicht_, float Gewicht_) {
-        super(initGewicht_, Gewicht_);
+    public Baummarder(float Gewicht_) {
+        super(Gewicht_);
     }
 
     @Override

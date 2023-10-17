@@ -2,32 +2,48 @@ package Kapitel13;
 
 import Kapitel11.*;
 
-import javax.swing.plaf.basic.BasicIconFactory;
 
 public class Arena <T extends Tier, V extends Tier> {
 
-    private final T animal1;
-    private final V animal2;
+
+    public Tier showdown (T anml1,V anml2) {
+    anml1.eat(anml2);
+    anml2.eat(anml1);
 
 
-    public Arena (T anml1,V anml2){
-        animal1 = anml1;
-        animal2 = anml2;
+    if (!anml1.AnimalAlive()){
+        return anml2;
+    }
+    if (!anml2.AnimalAlive()){
+        return anml1;
     }
 
-    public void showdown() {
-        animal1.eat(animal2);
-        // Richtiger Output gesucht
-        System.out.println(animal1.getClass());
+    return null;
     }
 
     public static void main(String[] args) {
-        Eichhoernchen Eichhorn = new Eichhoernchen(1,1);
-        Baummarder Baummard = new Baummarder(3,3);
-        Arena<Tier,Tier> wg1 = new Arena<>(Eichhorn, Baummard);
-        wg1.showdown();
+        Arena<Uhu,Baummarder> arena = new Arena<>();
+        Uhu uhi = new Uhu(3);
+        Baummarder baumi = new Baummarder(1);
 
+        Tier sieger = arena.showdown(uhi,baumi);
 
+        if (sieger != null){
+            System.out.println("Sieger Duell 1: " + sieger.getClass());
+        }
+        else{
+            System.out.println("Es gibt keinen Sieger in Duell 1");
+        }
+            Arena<Uhu,Uhu> arena2 = new Arena<>();
+        Uhu uhi2 = new Uhu(2);
+        Tier sieger2 = arena2.showdown(uhi, uhi2);
+
+        if (sieger2 != null){
+            System.out.println("Sieger Duell 2: " + sieger2.getClass());
+        }
+        else{
+            System.out.println("Es gibt keinen Sieger bei Duell 2");
+        }
     }
 }
 
