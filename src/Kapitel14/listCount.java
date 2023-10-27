@@ -17,12 +17,19 @@ public class listCount {
         return result;
     }
     // Übung 2
-    public void setInsert(TreeSet<Integer> treeset , Integer maxVal ){
-        int sum = 0;
-        for (Integer element : treeset){
-            sum =+ element;
-
+    public void setInsert( TreeSet<Integer> treeset , Integer maxVal ){
+       int sum = 0;
+       int i = 1;
+        for (Integer element : treeset)
+            sum = sum + element;
+        while ( maxVal> sum + i) {
+            boolean iAdded = treeset.add(i);
+            if (iAdded){
+                sum = sum + i;// Debug: Schleife addiert auf Summe in jedem Durchlauf, obwohl i nicht immer dem treeset zugefügt wird
+            }
+            i++;
         }
+        System.out.println(sum);
     }
 
     public static void main(String[] args) {
@@ -37,6 +44,16 @@ public class listCount {
         System.out.println(bra.listCounts(neueListe));
         // Test 1 ende
 
+        // Test 2
+        TreeSet<Integer> Tree = new TreeSet<>();
+        Tree.add(2);
+        Tree.add(4);
+        Tree.add(1);
+        Tree.add(6);
+        Tree.add(5);
+        System.out.println(Tree);
+        bra.setInsert(Tree, 44);
+        System.out.println(Tree);
 
 
     }
