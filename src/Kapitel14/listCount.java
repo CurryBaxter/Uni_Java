@@ -25,7 +25,7 @@ public class listCount {
         while ( maxVal> sum + i) {
             boolean iAdded = treeset.add(i);
             if (iAdded){
-                sum = sum + i;// Debug: Schleife addiert auf Summe in jedem Durchlauf, obwohl i nicht immer dem treeset zugefügt wird
+                sum = sum + i;
             }
             i++;
         }
