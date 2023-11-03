@@ -57,7 +57,7 @@ public class Auto {
 
     public boolean equals(Object other){
         if (other instanceof Auto otherAuto){
-            return otherAuto.getKilometerstand() == this.getKilometerstand() & otherAuto.getMax_tankfuellung() == this.getMax_tankfuellung() & otherAuto.getVerbrauch() == this.getVerbrauch() & otherAuto.getTankfuellung() == this.getTankfuellung();
+            return otherAuto.getKilometerstand() == this.getKilometerstand() && otherAuto.getMax_tankfuellung() == this.getMax_tankfuellung() && otherAuto.getVerbrauch() == this.getVerbrauch() && otherAuto.getTankfuellung() == this.getTankfuellung();
 
         }
         return false;
