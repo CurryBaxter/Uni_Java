@@ -5,7 +5,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Ka" options="--add-exports java.base/com=ALL-UNNAMED" />
+      <module name="Übung_Uni" options="--add-exports java.base/com=ALL-UNNAMED" />
     </option>
   </component>
 </project>
