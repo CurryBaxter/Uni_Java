@@ -18,17 +18,6 @@ public class listCount {
         return result;
     }
 
-    TreeMap<Integer, String> int2String = new TreeMap<>();
-        int2String.put(0,"null");
-        int2String.put(1,"eins");
-        int2String.put(2,"zwei");
-        int2String.put(3,"drei");
-        int2String.put(4,"vier");
-        int2String.put(5,"fünf");
-        int2String.put(6,"sechs");
-        int2String.put(7,"sieben");
-        int2String.put(8,"acht");
-        int2String.put(9,"neun");
 
     // Übung 2
     public void setInsert( TreeSet<Integer> treeset , Integer maxVal ){
@@ -48,16 +37,34 @@ public class listCount {
 
     // Übung 3
 
+    private TreeMap<Integer,String> ziffernToStrings = null;
+    private void initTreemap(){
+        if (ziffernToStrings == null){
+            ziffernToStrings = new TreeMap<Integer,String>();
+            ziffernToStrings.put(0,"null");
+            ziffernToStrings.put(1,"eins");
+            ziffernToStrings.put(2,"zwei");
+            ziffernToStrings.put(3,"drei");
+            ziffernToStrings.put(4,"vier");
+            ziffernToStrings.put(5,"fünf");
+            ziffernToStrings.put(6,"sechs");
+            ziffernToStrings.put(7,"sieben");
+            ziffernToStrings.put(8,"acht");
+            ziffernToStrings.put(9,"neun");
+        }
+    }
     public String int2String (int a){
+        initTreemap();
+
         String intAlsString = String.valueOf(a);
-        int loopLength = intAlsString.length();
-        int i = 0;
         String result = "";
-        //String element ="";
-        while (i <= loopLength - 1){
+
+        for (int i = 0;i < intAlsString.length();++i){
             char ch = intAlsString.charAt(i);
-            result = result + int2String.get(i);
-            i++;
+            String chTostring = Character.toString(ch);
+            int chAsInt = Integer.parseInt(chTostring);
+            String zifferAusgeschrieben = ziffernToStrings.get(chAsInt);
+            result += zifferAusgeschrieben;
         }
         return result;
     }
@@ -86,18 +93,8 @@ public class listCount {
       //System.out.println(Tree);
 
         // Test 3
-       //TreeMap<Integer, String> int2String = new TreeMap<>();
-       //int2String.put(0,"null");
-       //int2String.put(1,"eins");
-       //int2String.put(2,"zwei");
-       //int2String.put(3,"drei");
-       //int2String.put(4,"vier");
-       //int2String.put(5,"fünf");
-       //int2String.put(6,"sechs");
-       //int2String.put(7,"sieben");
-       //int2String.put(8,"acht");
-       //int2String.put(9,"neun");
-        bra.int2String(24);
+
+       bra.int2String(24);
 
 
 
