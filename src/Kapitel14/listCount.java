@@ -40,63 +40,63 @@ public class listCount {
     private TreeMap<Integer,String> ziffernToStrings = null;
     private void initTreemap(){
         if (ziffernToStrings == null){
-            ziffernToStrings = new TreeMap<Integer,String>();
-            ziffernToStrings.put(0,"null");
-            ziffernToStrings.put(1,"eins");
-            ziffernToStrings.put(2,"zwei");
-            ziffernToStrings.put(3,"drei");
-            ziffernToStrings.put(4,"vier");
-            ziffernToStrings.put(5,"fünf");
-            ziffernToStrings.put(6,"sechs");
-            ziffernToStrings.put(7,"sieben");
-            ziffernToStrings.put(8,"acht");
-            ziffernToStrings.put(9,"neun");
+            ziffernToStrings = new TreeMap<>();
+            ziffernToStrings.put(0,"Null");
+            ziffernToStrings.put(1,"Eins");
+            ziffernToStrings.put(2,"Zwei");
+            ziffernToStrings.put(3,"Drei");
+            ziffernToStrings.put(4,"Vier");
+            ziffernToStrings.put(5,"Fünf");
+            ziffernToStrings.put(6,"Sechs");
+            ziffernToStrings.put(7,"Sieben");
+            ziffernToStrings.put(8,"Acht");
+            ziffernToStrings.put(9,"Neun");
         }
     }
     public String int2String (int a){
         initTreemap();
 
         String intAlsString = String.valueOf(a);
-        String result = "";
+        StringBuilder result = new StringBuilder();
 
         for (int i = 0;i < intAlsString.length();++i){
             char ch = intAlsString.charAt(i);
             String chTostring = Character.toString(ch);
             int chAsInt = Integer.parseInt(chTostring);
             String zifferAusgeschrieben = ziffernToStrings.get(chAsInt);
-            result += zifferAusgeschrieben;
+            result.append(zifferAusgeschrieben);
         }
-        return result;
+        return result.toString();
     }
 
     public static void main(String[] args) {
         //Test von Methode listCounts zur Überprüfung von großen "D" in Liste
-       //ArrayList<String> neueListe = new ArrayList<>();
-       //neueListe.add("daniel");
-       //neueListe.add("Peter");
-       //neueListe.add("dieter");
-       //neueListe.add("Hans");
+       ArrayList<String> neueListe = new ArrayList<>();
+       neueListe.add("daniel");
+       neueListe.add("Peter");
+       neueListe.add("dieter");
+       neueListe.add("Hans");
 
        listCount bra = new listCount();
-       //System.out.println(bra.listCounts(neueListe));
+       System.out.println(bra.listCounts(neueListe));
         // Test 1 ende
 
         // Test 2
-      //TreeSet<Integer> Tree = new TreeSet<>();
-      //Tree.add(2);
-      //Tree.add(4);
-      //Tree.add(1);
-      //Tree.add(6);
-      //Tree.add(5);
-      //System.out.println(Tree);
-      //bra.setInsert(Tree, 44);
-      //System.out.println(Tree);
+      TreeSet<Integer> Tree = new TreeSet<>();
+      Tree.add(2);
+      Tree.add(4);
+      Tree.add(1);
+      Tree.add(6);
+      Tree.add(5);
+      System.out.println(Tree);
+      bra.setInsert(Tree, 44);
+      System.out.println(Tree);
 
         // Test 3
-
-       bra.int2String(24);
-
-
+        String test1 = "Hallo";
+        String test2 = "Welt";
+        System.out.println(test1 + test2);
+        System.out.println(bra.int2String(23));
 
     }
 }
